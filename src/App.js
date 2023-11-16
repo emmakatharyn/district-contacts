@@ -7,8 +7,8 @@ import Button from "react-bootstrap/Button";
 function App() {
   return (
     <div className='App'>
-      <h1>Hello World! Big shit poppin</h1>
-      <h6>and lil shit stoppin</h6>
+      <h1>Hello World! </h1>
+      <h6>I swear i know what i'm doing</h6>
       <p>Let's use React Bootstrap to speed this up</p>
       <Button>Hiiiii</Button>
     </div>
