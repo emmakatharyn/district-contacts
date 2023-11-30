@@ -1,3 +1,4 @@
+import { React, useState } from "react";
 import "./App.css";
 
 // import employers from "./employers";
@@ -12,24 +13,19 @@ import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
 
 function App() {
+  const [query, setQuery] = useState();
   return (
     <div className='App m-2'>
       <h1>NMPSIA Participating Employer Contact Database</h1>
       <hr />
 
-      <Form className='my-4' style={{ maxWidth: "600px" }}>
+      <Form className='my-4'>
         <Row className='align-items-center'>
-          <Form.Label htmlFor='inlineFormInputName' className='text-muted'>
-            Enter a District Name or #
-          </Form.Label>
-          <Col sm={8} className='my-1'>
-            <Form.Control
-              id='inlineFormInputName'
-              placeholder='Search for...'
-            />
+          <Col className='my-1'>
+            <Search query={query} setQuery={setQuery} />
           </Col>
 
-          <Col sm={4} className='my-1'>
+          <Col className='my-1'>
             <Button type='submit'>Search</Button>
           </Col>
         </Row>
@@ -37,7 +33,7 @@ function App() {
 
       {/* <EmployersList /> */}
       <span className='mb-4'>Search result:</span>
-      <Card style={{ width: "600px" }}>
+      <Card>
         <Card.Body>
           <Card.Title className='my-2'>
             Elite School of Book Learnin' NM
@@ -47,7 +43,7 @@ function App() {
             <Card.Subtitle className='my-2'>
               <em>Jane K. Doe</em>
             </Card.Subtitle>
-            <Card.Text>
+            <div>
               <ul
                 className='ps-3'
                 style={{ listStyle: "none", borderLeft: "2px solid #eee" }}
@@ -63,7 +59,7 @@ function App() {
                   <span className='text-muted'>Phone:</span> 505-555-0123
                 </li>
               </ul>
-            </Card.Text>
+            </div>
           </div>
 
           <div className='my-4'>
@@ -91,6 +87,18 @@ function App() {
         </Card.Body>
       </Card>
     </div>
+  );
+}
+
+function Search({ query, setQuery }) {
+  return (
+    <input
+      className='form-control'
+      type='text'
+      placeholder='Search for...'
+      value={query}
+      onChange={(e) => setQuery(e.target.value)}
+    />
   );
 }
 
