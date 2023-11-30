@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/district-contacts/static/css/main.50d8d0a9.css",
+    "main.js": "/district-contacts/static/js/main.49370d71.js",
+    "index.html": "/district-contacts/index.html",
+    "main.50d8d0a9.css.map": "/district-contacts/static/css/main.50d8d0a9.css.map",
+    "main.49370d71.js.map": "/district-contacts/static/js/main.49370d71.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.50d8d0a9.css",
+    "static/js/main.49370d71.js"
+  ]
+}
