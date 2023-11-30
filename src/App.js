@@ -22,6 +22,9 @@ function App() {
       <Form className='my-4'>
         <Row className='align-items-center'>
           <Col className='my-1'>
+            <Form.Label htmlFor='inlineFormInputName' className='text-muted'>
+              Enter a District Name or #
+            </Form.Label>
             <Search query={query} setQuery={setQuery} />
           </Col>
 
