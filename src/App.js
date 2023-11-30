@@ -1,7 +1,7 @@
 import { React, useState } from "react";
 import "./App.css";
 
-// import employers from "./employers";
+import employers from "./employers";
 
 // using a CDN in the html root
 // import "bootstrap/dist/css/bootstrap.min.css";
@@ -13,7 +13,7 @@ import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
 
 function App() {
-  const [query, setQuery] = useState();
+  const [query, setQuery] = useState("");
   return (
     <div className='App m-2'>
       <h1>NMPSIA Participating Employer Contact Database</h1>
@@ -21,36 +21,38 @@ function App() {
 
       <Form className='my-4'>
         <Row className='align-items-center'>
-          <Col className='my-1'>
+          <Col>
             <Form.Label htmlFor='inlineFormInputName' className='text-muted'>
-              Enter a District Name or #
+              Enter a district name or ID
             </Form.Label>
             <Search query={query} setQuery={setQuery} />
           </Col>
 
-          <Col className='my-1'>
+          {/* <Col className='my-1'>
             <Button type='submit'>Search</Button>
-          </Col>
+          </Col> */}
         </Row>
       </Form>
 
-      {/* <EmployersList /> */}
-      <span className='mb-4'>Search result:</span>
-      <Card>
+      <Button>Select from Roster</Button>
+
+      <EmployersList />
+
+      <span className='pb-4'>Showing results for "{query}"</span>
+
+      <Card className='search-result'>
         <Card.Body>
           <Card.Title className='my-2'>
             Elite School of Book Learnin' NM
           </Card.Title>
 
+          {/* contact person */}
           <div className='my-4'>
             <Card.Subtitle className='my-2'>
               <em>Jane K. Doe</em>
             </Card.Subtitle>
-            <div>
-              <ul
-                className='ps-3'
-                style={{ listStyle: "none", borderLeft: "2px solid #eee" }}
-              >
+            <div className='contact-info d-flex gap-4'>
+              <ul className='ps-4'>
                 <li>
                   <span className='text-muted'>Role:</span> BILLING1, BENEFITS1
                 </li>
@@ -61,7 +63,24 @@ function App() {
                 <li>
                   <span className='text-muted'>Phone:</span> 505-555-0123
                 </li>
+                <li>
+                  <span className='text-muted'>Fax:</span> 505-555-0123
+                </li>
               </ul>
+              <div>
+                <span className='text-muted'>Physical Address</span>
+                <ul className='ps-4'>
+                  <li>111 Somewhere Ln</li>
+                  <li>Nowhereland, UM 00000</li>
+                </ul>
+              </div>
+              <div>
+                <span className='text-muted'>Mailing Address</span>
+                <ul className='ps-4'>
+                  <li>P.O. BOX 123987</li>
+                  <li>Nowhereland, UM 00000</li>
+                </ul>
+              </div>
             </div>
           </div>
 
@@ -69,11 +88,8 @@ function App() {
             <Card.Subtitle className='my-2'>
               <em>James Tho</em>
             </Card.Subtitle>
-            <Card.Text>
-              <ul
-                className='ps-3'
-                style={{ listStyle: "none", borderLeft: "2px solid #eee" }}
-              >
+            <div className='contact-info d-flex gap-4'>
+              <ul className='ps-4'>
                 <li>
                   <span className='text-muted'>Role:</span> BILLING2, BENEFITS2
                 </li>
@@ -84,8 +100,25 @@ function App() {
                 <li>
                   <span className='text-muted'>Phone:</span> 505-555-4567
                 </li>
+                <li>
+                  <span className='text-muted'>Fax:</span> 505-555-4567
+                </li>
               </ul>
-            </Card.Text>
+              <div>
+                <span className='text-muted'>Physical Address</span>
+                <ul className='ps-4'>
+                  <li>111 Somewhere Ln</li>
+                  <li>Nowhereland, UM 00000</li>
+                </ul>
+              </div>
+              <div>
+                <span className='text-muted'>Mailing Address</span>
+                <ul className='ps-4'>
+                  <li>P.O. BOX 123987</li>
+                  <li>Nowhereland, UM 00000</li>
+                </ul>
+              </div>
+            </div>
           </div>
         </Card.Body>
       </Card>
@@ -93,15 +126,29 @@ function App() {
   );
 }
 
+function EmployersList() {
+  const listItems = employers.map((employer) => (
+    <li>
+      {employer.distID < 100 ? `0${employer.distID}` : employer.distID} -{" "}
+      {employer.school}
+    </li>
+  ));
+  return <ul>{listItems}</ul>;
+}
+
 function Search({ query, setQuery }) {
   return (
-    <input
-      className='form-control'
-      type='text'
-      placeholder='Search for...'
-      value={query}
-      onChange={(e) => setQuery(e.target.value)}
-    />
+    <div>
+      <input
+        id='inlineFormInputName'
+        className='form-control'
+        type='text'
+        placeholder='Search for...'
+        value={query}
+        onChange={(e) => setQuery(e.target.value)}
+      />
+      <button className='btn btn-primary my-2'>Search</button>
+    </div>
   );
 }
 
