@@ -1,3 +1,6 @@
+// MOCK DATA
+//need to set up API request to /nmpsiaapi/DistrictContact/LoadDistrictContacts or wherever that endpoint is getting the contact list
+
 const employers = [
   {
     school: "ACADEMY FOR TECHNOLOGY AND THE CLASSICS",
