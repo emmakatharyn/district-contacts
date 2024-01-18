@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/district-contacts/static/css/main.e5848ba3.css",
-    "main.js": "/district-contacts/static/js/main.8c6acde4.js",
+    "main.css": "/district-contacts/static/css/main.348042fa.css",
+    "main.js": "/district-contacts/static/js/main.85148f39.js",
     "index.html": "/district-contacts/index.html",
-    "main.e5848ba3.css.map": "/district-contacts/static/css/main.e5848ba3.css.map",
-    "main.8c6acde4.js.map": "/district-contacts/static/js/main.8c6acde4.js.map"
+    "main.348042fa.css.map": "/district-contacts/static/css/main.348042fa.css.map",
+    "main.85148f39.js.map": "/district-contacts/static/js/main.85148f39.js.map"
   },
   "entrypoints": [
-    "static/css/main.e5848ba3.css",
-    "static/js/main.8c6acde4.js"
+    "static/css/main.348042fa.css",
+    "static/js/main.85148f39.js"
   ]
 }
